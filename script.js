@@ -13,8 +13,8 @@ const perguntas = [//abre a lista de objetos (itens)
         {
             texto: "Não",
             afirmação: "Afirmação da alternativa"
-        }
-        ]
+        }Your repositories
+
     },
     {
         enunciado: "Pergunta 2",
@@ -46,8 +46,13 @@ let perguntaAtual;
 
 
 function mostraPergunta() {
-    perguntaAtual = perguntas[posicao];
+    if (posicao>=perguntas.lenght){
+        mostraResultado();
+        return;
+    }
+        perguntaAtual = perguntas[posicao];
     caixaPergunta.textContent = perguntaAtual.enunciado;
+    caixaAlternativa.textContent = " ";
     mostraAlternativas();
 }
 function mostraAlternativas() {
@@ -60,5 +65,8 @@ function mostraAlternativas() {
         });
         caixaAlternativa.appendChild(botaoAlternativas);
     }
+}
+function mostraResultado(){
+    caixaPergunta.textContent = "Daqui a 10 anos você acha que a inteligência Artificial irá dominar o mundo?";
 }
 mostraPergunta();
